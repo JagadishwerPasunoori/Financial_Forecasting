@@ -36,7 +36,7 @@ def train_models():
     
     # Save models
     dump(ml_pipe, 'models/ml_model.pkl')
-    dl_model.save('models/dl_model.keras', save_format='tf')
+    dl_model.save('models/dl_model.h5')
 
 if __name__ == '__main__':
     train_models()
