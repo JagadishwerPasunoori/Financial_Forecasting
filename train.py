@@ -25,18 +25,10 @@ def train_models():
     ])
     ml_pipe.fit(X, y)
     
-    # Deep Learning Model
-    dl_model = tf.keras.Sequential([
-        tf.keras.layers.Dense(64, activation='relu', input_shape=(3,)),
-        tf.keras.layers.Dense(128, activation='relu'),
-        tf.keras.layers.Dense(len(targets))
-    ])
-    dl_model.compile(optimizer='adam')
-    dl_model.fit(X, y, epochs=50, verbose=0)
     
     # Save models
     dump(ml_pipe, 'models/ml_model.pkl')
-    dl_model.save('models/dl_model.h5')
+
 
 if __name__ == '__main__':
     train_models()
