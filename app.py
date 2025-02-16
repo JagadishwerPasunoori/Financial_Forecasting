@@ -10,7 +10,7 @@ def main():
     
     # Load models
     ml_model = load('models/ml_model.pkl')
-    dl_model = tf.keras.models.load_model('models/dl_model.h5')
+   
     
     # Sidebar inputs
     with st.sidebar:
@@ -26,7 +26,7 @@ def main():
     # Make predictions
     if st.button('Predict'):
         ml_pred = ml_model.predict(input_data)
-        dl_pred = dl_model.predict(input_data)
+        
         
         # Get original columns
         df = load_data('data/financial_data.csv')
@@ -35,14 +35,12 @@ def main():
         
         # Create result DataFrames
         ml_results = pd.DataFrame(ml_pred, columns=targets)
-        dl_results = pd.DataFrame(dl_pred, columns=targets)
+       
         
         # Display results
         st.subheader("Machine Learning Forecating")
         st.dataframe(ml_results.style.format("{:,.2f}"))
         
-        st.subheader("Deep Learning Forecasting")
-        st.dataframe(dl_results.style.format("{:,.2f}"))
-
+     
 if __name__ == '__main__':
     main()
