@@ -10,7 +10,10 @@ def main():
     
     # Load models
     ml_model = load('models/ml_model.pkl')
-    dl_model = tf.keras.models.load_model('models/dl_model.h5')
+    dl_model = tf.keras.models.load_model(
+    'models/dl_model.keras',
+    custom_objects={'mse': tf.keras.losses.MeanSquaredError()}
+    )
     
     # Sidebar inputs
     with st.sidebar:
