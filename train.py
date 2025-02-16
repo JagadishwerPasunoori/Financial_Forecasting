@@ -31,7 +31,7 @@ def train_models():
         tf.keras.layers.Dense(128, activation='relu'),
         tf.keras.layers.Dense(len(targets))
     ])
-    dl_model.compile(optimizer='adam', loss='mse')
+    dl_model.compile(optimizer='adam')
     dl_model.fit(X, y, epochs=50, verbose=0)
     
     # Save models
