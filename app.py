@@ -38,7 +38,7 @@ def main():
        
         
         # Display results
-        st.subheader("Machine Learning Forecating")
+        st.subheader("Financial Forecating")
         st.dataframe(ml_results.style.format("{:,.2f}"))
         
      
